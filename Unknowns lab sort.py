@@ -1,6 +1,6 @@
 # This project was to make an
 # alternating/randomizing sorting function
-# for Truman's BIO 233 Unknowns lab
+# for a Microbiology Unknowns Lab
 
 import random
 
@@ -29,7 +29,7 @@ myUnknowns = []
 # yet alternating from gram positive to negative or vice versa
 # doing this was the goal of this project as in real life
 # I would make several of these lists by hand for all sections
-# of our Microbiology 233 labs in the past.
+# of our Microbiology labs in the past.
 isGramNeg = [True, False]
 
 def printup():
