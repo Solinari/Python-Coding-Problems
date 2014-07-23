@@ -53,12 +53,10 @@ def Listpicker(isGramNeg):
 def Unknowner(bugsNeg, bugsPos):
     '''puts together the intital list'''
     # randomly insert a bug from either the negative
-    # or positive list of bugs using a random flip
-    # we're going to fix renames in the mixup() function
+    # or positive list of bugs using a random variable
 
     global myUnknowns
 
-    # finish the loop with considering flipping both lists
     mychoice = Listpicker(isGramNeg)
     
     while len(bugsNeg) > 0 or len(bugsPos) > 0:
