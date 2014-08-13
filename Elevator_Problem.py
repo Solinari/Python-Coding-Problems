@@ -68,18 +68,8 @@ class Elevator:
         return ("Floor: {}\nBank: {}\nWeight: {}\n".format(self.getFloor(),
                                                            self.getBank(),
                                                            self.getWeight()))
-# test lines for the object class
 
-##MyEla = Elevator(10, 10, 10)
-##
-##print(MyEla)
-##
-##MyEla.setFloor(2)
-##print(MyEla)
-##MyEla.setBank(4)
-##print(MyEla)
-##MyEla.setWeight(6)
-##print(MyEla)
+
 
 
 # write a function to load and run the program.
@@ -100,6 +90,16 @@ def myInit():
     
     print(MyElevators)
 
+    cable = "|"
+
+    MyBuilding = [[cable for bank in range(0, MyBanks)] for floor in range(0, MyFloor)]
+
+    
+    for floor in MyBuilding:
+        for bank in floor:
+            print(bank, end = "  ")
+        print()
+    
 myInit()
 
     
