@@ -19,6 +19,8 @@
 # elevators should also have a weight attribute and not add more patrons
 # than it's weight.
 
+import math
+
 class Elevator:
     ''' defines elevator object'''
 
@@ -79,3 +81,21 @@ MyEla.setBank(4)
 print(MyEla)
 MyEla.setWeight(6)
 print(MyEla)
+
+
+# write a function to load and run the program.
+# everything should be in this init function to run
+
+def myInit():
+    '''initialize the program'''
+
+    print("Welcome to elevator simulator!\n\n")
+
+    print("How many floors does this building have?\n\n")
+    MyFloor = int(math.floor(input("Enter the Number of floors?\n")))
+    print("How many elevators does this building have?\n\n")
+    MyBanks = int(math.floor(input("Enter the Number of elevators?\n")))
+    print("What is the weight limit of these elevators?\n\n")
+    MyWeight = int(math.floor(input("Enter the Number of Patrons each elevator can carry?\n")))
+
+    
