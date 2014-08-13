@@ -94,10 +94,15 @@ def myInit():
     cable = "|"
 
     patrons = 0
-
-    MyBuilding = [[MyElevators if floor == MyElevators.getBank() - 1 and bank != MyElevators.getBank()
+    # This merits some explanation:
+    # append the the floor number to each element if it is the firstlist 
+    # append a class object (they are all the same initially) to each element of the last list
+    # or a 0 (patrons on each floor) if its the final element of each list
+    # or a | representing a cable if none of those are not the true condition
+    MyBuilding = [[bank if floor == 0 else
+                   MyElevators if floor == MyElevators.getBank() - 1 and bank != MyElevators.getBank()
                    else patrons if bank == MyElevators.getBank()
-                   else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor())]
+                   else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor() + 1)]
 
     print(MyBuilding)
 
