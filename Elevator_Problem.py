@@ -19,7 +19,6 @@
 # elevators should also have a weight attribute and not add more patrons
 # than it's weight.
 
-import math
 
 class Elevator:
     ''' defines elevator object'''
@@ -71,16 +70,16 @@ class Elevator:
                                                            self.getWeight()))
 # test lines for the object class
 
-MyEla = Elevator(10, 10, 10)
-
-print(MyEla)
-
-MyEla.setFloor(2)
-print(MyEla)
-MyEla.setBank(4)
-print(MyEla)
-MyEla.setWeight(6)
-print(MyEla)
+##MyEla = Elevator(10, 10, 10)
+##
+##print(MyEla)
+##
+##MyEla.setFloor(2)
+##print(MyEla)
+##MyEla.setBank(4)
+##print(MyEla)
+##MyEla.setWeight(6)
+##print(MyEla)
 
 
 # write a function to load and run the program.
@@ -91,11 +90,16 @@ def myInit():
 
     print("Welcome to elevator simulator!\n\n")
 
-    print("How many floors does this building have?\n\n")
-    MyFloor = int(math.floor(input("Enter the Number of floors?\n")))
-    print("How many elevators does this building have?\n\n")
-    MyBanks = int(math.floor(input("Enter the Number of elevators?\n")))
-    print("What is the weight limit of these elevators?\n\n")
-    MyWeight = int(math.floor(input("Enter the Number of Patrons each elevator can carry?\n")))
+    MyFloor = int(input("How many floors does this building have?\n\n"))
+
+    MyBanks = int(input("How many elevators does this building have?\n\n"))
+    
+    MyWeight = int(input("What is the maximum number of patrons in each elevator?\n\n"))
+
+    MyElevators = Elevator(MyFloor, MyBanks, MyWeight)
+    
+    print(MyElevators)
+
+myInit()
 
     
