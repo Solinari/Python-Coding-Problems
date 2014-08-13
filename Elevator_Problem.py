@@ -65,9 +65,10 @@ class Elevator:
 
     def __repr__(self):
         # complete repr
-        return ("Floor: {}\nBank: {}\nWeight: {}\n".format(self.getFloor(),
-                                                           self.getBank(),
-                                                           self.getWeight()))
+##        return ("Floor: {}\nBank: {}\nWeight: {}\n".format(self.getFloor(),
+##                                                           self.getBank(),
+##                                                           self.getWeight()))
+        return("E")
 
 
 
@@ -92,7 +93,7 @@ def myInit():
 
     cable = "|"
 
-    MyBuilding = [[cable for bank in range(0, MyBanks)] for floor in range(0, MyFloor)]
+    MyBuilding = [[MyElevators if floor == MyBanks - 1 else cable for bank in range(0, MyBanks)] for floor in range(0, MyFloor)]
 
     
     for floor in MyBuilding:
