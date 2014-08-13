@@ -93,7 +93,13 @@ def myInit():
 
     cable = "|"
 
-    MyBuilding = [[MyElevators if floor == MyBanks - 1 else cable for bank in range(0, MyBanks)] for floor in range(0, MyFloor)]
+    patrons = 0
+
+    MyBuilding = [[MyElevators if floor == MyElevators.getBank() - 1 and bank != MyElevators.getBank()
+                   else patrons if bank == MyElevators.getBank()
+                   else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor())]
+
+    print(MyBuilding)
 
     
     for floor in MyBuilding:
