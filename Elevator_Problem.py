@@ -107,7 +107,7 @@ def myInit():
     
     for floor in MyBuilding:
         for bank in floor:
-            print(bank, end = "  ")
+            print(str(bank).ljust(2), end = " ")
         print()
     
 myInit()
