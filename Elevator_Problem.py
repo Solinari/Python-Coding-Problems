@@ -95,7 +95,7 @@ def myInit():
 
     patrons = 0
     # This merits some explanation:
-    # append the the floor number to each element if it is the firstlist 
+    # append the the floor number to each element if it is the firstlist but not the last element.
     # append a class object (they are all the same initially) to each element of the last list
     # or a 0 (patrons on each floor) if its the final element of each list
     # or a | representing a cable if none of those are not the true condition
