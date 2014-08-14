@@ -88,10 +88,10 @@ def myInit():
     MyWeight = int(input("What is the maximum number of patrons in each elevator?\n\n"))
 
     MyElevators = Elevator(MyFloor, MyBanks, MyWeight)
-    
-    print(MyElevators)
 
     cable = "|"
+
+    blank = ""
 
     patrons = 0
     # This merits some explanation:
@@ -99,13 +99,11 @@ def myInit():
     # append a class object (they are all the same initially) to each element of the last list
     # or a 0 (patrons on each floor) if its the final element of each list
     # or a | representing a cable if none of those are not the true condition
-    MyBuilding = [[bank if floor == 0 else
-                   MyElevators if floor == MyElevators.getFloor() and bank != MyElevators.getBank()
+    MyBuilding = [[blank if floor == 0 and bank == MyElevators.getBank() 
+                   else bank + 1 if floor == 0
+                   else MyElevators if floor == MyElevators.getFloor() and bank != MyElevators.getBank()
                    else patrons if bank == MyElevators.getBank()
                    else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor() + 1)]
-
-    print(MyBuilding)
-
     
     for floor in MyBuilding:
         for bank in floor:
