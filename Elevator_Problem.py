@@ -70,8 +70,12 @@ class Elevator:
 ##                                                           self.getWeight()))
         return("E")
 
-
-
+def printBuilding(building):
+    '''print the building as needed'''
+    for floor in building:
+        for bank in floor:
+            print(str(bank).ljust(2), end = " ")
+        print()
 
 # write a function to load and run the program.
 # everything should be in this init function to run
@@ -105,11 +109,10 @@ def myInit():
                    else patrons if bank == MyElevators.getBank()
                    else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor() + 1)]
     
-    for floor in MyBuilding:
-        for bank in floor:
-            print(str(bank).ljust(2), end = " ")
-        print()
+    printBuilding(MyBuilding)
     
 myInit()
+
+
 
     
