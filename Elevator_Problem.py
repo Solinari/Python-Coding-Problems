@@ -19,6 +19,8 @@
 # elevators should also have a weight attribute and not add more patrons
 # than it's weight.
 
+import tkinter as tk
+import tkinter.scrolledtext as tkst
 
 class Elevator:
     ''' defines elevator object'''
@@ -70,12 +72,33 @@ class Elevator:
 ##                                                           self.getWeight()))
         return("E")
 
+# variables and method for Tkinter
+EleWin = tk.Tk()
+EleFrame = tk.Frame(master = EleWin, bg = '#808000')
+
+EleFrame.pack(fill = 'both', expand = 'yes')
+
+editArea = tkst.ScrolledText(master = EleFrame,
+                             wrap = tk.WORD,
+                             width = 20,
+                             height = 10)
+
+editArea.pack(padx = 10,
+              pady = 10,
+              fill = tk.BOTH,
+              expand = True)
+
 def printBuilding(building):
     '''print the building as needed'''
+    
+    thebuilding = ""
+    
     for floor in building:
         for bank in floor:
-            print(str(bank).ljust(2), end = " ")
-        print()
+            thebuilding += str(bank).ljust(2) + " "
+        thebuilding += "\n"
+
+    return thebuilding
 
 # write a function to load and run the program.
 # everything should be in this init function to run
@@ -108,10 +131,13 @@ def myInit():
                    else MyElevators if floor == MyElevators.getFloor() and bank != MyElevators.getBank()
                    else patrons if bank == MyElevators.getBank()
                    else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor() + 1)]
-    
-    printBuilding(MyBuilding)
+
+    # print text into tk frame
+    editArea.insert(tk.INSERT, printBuilding(MyBuilding))
     
 myInit()
+
+
 
 
 
