@@ -20,7 +20,7 @@
 # than it's weight.
 
 import tkinter as tk
-import tkinter.scrolledtext as tkst
+##import tkinter.scrolledtext as tkst
 
 class Elevator:
     ''' defines elevator object'''
@@ -72,21 +72,17 @@ class Elevator:
 ##                                                           self.getWeight()))
         return("E")
 
-# variables and method for Tkinter
-EleWin = tk.Tk()
-EleFrame = tk.Frame(master = EleWin, bg = '#808000')
+class DisplayElevator(tk.Frame):
+    '''displays and updates the Building on the display'''
 
-EleFrame.pack(fill = 'both', expand = 'yes')
+    def __init__(self, *args, **kwargs):
+        tk.Frame.__init__(self, *args, **kwargs)
+        canvas = tk.Canvas(self, width = 800, height = 500)
+        canvas.pack(side = "top", fill = "both", expand = True)
+        canvas_id = canvas.create_text(10, 10, anchor = "nw")
+        canvas.itemconfig(canvas_id, text = printBuilding(MyBuilding))
+        canvas.insert(canvas_id, 12, printBuilding(MyBuilding))
 
-editArea = tkst.ScrolledText(master = EleFrame,
-                             wrap = tk.WORD,
-                             width = 20,
-                             height = 10)
-
-editArea.pack(padx = 10,
-              pady = 10,
-              fill = tk.BOTH,
-              expand = True)
 
 def printBuilding(building):
     '''print the building as needed'''
@@ -105,6 +101,7 @@ def printBuilding(building):
 
 def myInit():
     '''initialize the program'''
+    global MyBuilding
 
     print("Welcome to elevator simulator!\n\n")
 
@@ -132,8 +129,27 @@ def myInit():
                    else patrons if bank == MyElevators.getBank()
                    else cable for bank in range(0, MyElevators.getBank() + 1)] for floor in range(0, MyElevators.getFloor() + 1)]
 
-    # print text into tk frame
-    editArea.insert(tk.INSERT, printBuilding(MyBuilding))
+    # variables and method for Tkinter
+    EleWin = tk.Tk()
+    DisplayElevator(EleWin).pack(side = "top", fill = "both", expand = True)
+    EleWin.mainloop()
+##    EleWin = tk.Tk()
+##    EleFrame = tk.Frame(master = EleWin, bg = '#808000')
+##
+##    EleFrame.pack(fill = 'both', expand = 'yes')
+##
+##    editArea = tkst.ScrolledText(master = EleFrame,
+##                                 wrap = tk.WORD,
+##                                 width = 3 * len(MyBuilding[0]),
+##                                 height = 1 * len(MyBuilding))
+##
+##    editArea.pack(padx = 10,
+##                  pady = 10,
+##                  fill = tk.BOTH,
+##                  expand = True)
+##
+##    # print text into tk frame
+##    editArea.insert(tk.INSERT, printBuilding(MyBuilding))
     
 myInit()
 
